@@ -1,0 +1,172 @@
+/* Container */
+.purchase-view-container {
+    width: 100%;
+    padding: 20px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Card */
+.purchase-card-full {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+}
+
+/* Header */
+.purchase-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.header-info h2 {
+    font-size: 28px;
+    color: #1e293b;
+    margin: 0;
+    font-weight: 800;
+}
+
+.header-info p {
+    color: #64748b;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+/* Actions */
+.purchase-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.purchase-search-input {
+    width: 300px;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.purchase-search-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.add-purchase-btn {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-purchase-btn:hover {
+    background-color: #0f172a;
+}
+
+/* Table Design (Bigger Rows) */
+.purchase-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+}
+
+.modern-purchase-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* Header Cell */
+.modern-purchase-table th {
+    background: #f8fafc;
+    padding: 20px; /* Increased padding */
+    font-size: 12px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    border-bottom: 2px solid #eef2f6;
+}
+
+/* Data Cell */
+.modern-purchase-table td {
+    padding: 24px 20px; /* Large padding for "Bigger" width/height look */
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 16px; /* Slightly larger text */
+    color: #334155;
+}
+
+/* Specific Column Styles */
+.sno-cell {
+    font-weight: 700;
+    color: #94a3b8;
+    width: 80px;
+}
+
+.invoice-cell {
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.company-cell {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.cost-cell {
+    font-weight: 800;
+    color: #10b981; /* Green for money */
+    font-size: 18px;
+}
+
+/* Actions */
+.action-btns {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-view {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.btn-view:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clickable-row:hover {
+    background-color: #f1f5f9; /* Light grey highlight on hover */
+}
