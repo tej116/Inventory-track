@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react"; // Added Suspense
 import { useSearchParams, useRouter } from "next/navigation";
 
-function Additem() {
+// --- START OF YOUR LOGIC COMPONENT ---
+function AddItemForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const itemId = searchParams.get("itemId");
@@ -88,7 +89,7 @@ function Additem() {
     try {
       const method = itemId ? "PUT" : "POST";
       const body = itemId ? { itemId, ...formData } : formData;
-       const isEditMode = !!itemId; 
+      const isEditMode = !!itemId;
 
       if (
         Number(formData.discountPercentage) <= 0 &&
@@ -112,7 +113,8 @@ function Additem() {
       // ----------------------------------------------------------- */
       if (!isEditMode) {
         // ONLY run this when creating a NEW item
-        const existingItems = JSON.parse(localStorage.getItem("purchase_item_ids")) || [];
+        const existingItems =
+          JSON.parse(localStorage.getItem("purchase_item_ids")) || [];
         const newItemId = data?.data?.itemId;
 
         if (newItemId) {
@@ -130,12 +132,14 @@ function Additem() {
             })
           );
         }
-      } 
+      }
       /* If it IS an edit mode, we skip the storage logic above, 
          so 'purchase_item_ids' stays empty, and layout stays unlocked. */
       /* ----------------------------------------------------------- */
 
-      alert(isEditMode ? "Item updated successfully ✅" : "Item added successfully ✅");
+      alert(
+        isEditMode ? "Item updated successfully ✅" : "Item added successfully ✅"
+      );
 
       if (isEditMode) {
         // If editing, go back to the items list immediately
@@ -353,4 +357,13 @@ function Additem() {
   );
 }
 
-export default Additem;
+// --- END OF YOUR LOGIC COMPONENT ---
+
+// ✅ MAIN EXPORT WRAPPED IN SUSPENSE TO CLEAR VERCEL ERROR
+export default function Additem() {
+  return (
+    <Suspense fallback={<div className="p-5 text-center">Loading Form...</div>}>
+      <AddItemForm />
+    </Suspense>
+  );
+}
